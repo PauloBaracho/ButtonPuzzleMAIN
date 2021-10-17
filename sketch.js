@@ -1,7 +1,7 @@
 var player, leftEdge;
 var bud1, bud2;
 var redDoor, greenDoor;
-var menuSoundtrack;
+var menuSoundtrack, gameSoundtrack;
 
 var unlockDoor1 = 0;
 var unlockDoor2 = 0;
@@ -20,11 +20,11 @@ function preload() {
 function setup(){
     createCanvas(1500,1000);
 
-    //gameSoundtrack.play();
-    //gameSoundtrack.loop();
-
     //menuSoundtrack.play();
     //menuSoundtrack.loop();
+
+    //gameSoundtrack.play();
+    //gameSoundtrack.loop();
 
     leftEdge = createSprite (1500,500,5,1500);
 
