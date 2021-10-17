@@ -3,6 +3,9 @@ var bud1, bud2;
 var redDoor, greenDoor;
 var menuSoundtrack;
 
+var unlockDoor1 = 0;
+var unlockDoor2 = 0;
+var unlockCount = 0;
 var gameStages = 1;
 var INTRO = 1;
 var INSTRUCTIONS = 2;
@@ -165,6 +168,8 @@ function draw() {
 
     if (gameStages === PHASE2) {
 
+      unlockCount = unlockDoor1 + unlockDoor2;
+
       bud2.x = 100;
       bud2.y = 100;
       bud2.visible = true;
@@ -179,20 +184,21 @@ function draw() {
       greenDoor.y = redDoor.y;
       greenDoor.width = redDoor.width;
       greenDoor.height = redDoor.height;
-  
  
       if (player.isTouching (bud1)) {
         bud1.shapeColor = rgb (0,255,0);
         player.collide(bud1);
+        unlockDoor1 = 1;
       }
 
       if (player.isTouching(bud2)) {
         bud2.shapeColor = rgb (0,255,0);
         player.collide(bud2);
+        unlockDoor2 = 1;
       }
 
-      if (bud1 === rgb (0,255,0) && bud2 === rgb (0,255,0)) {
-        //greenDoor.visible = true;
+      if (unlockCount === 2) {
+        greenDoor.visible = true;
         redDoor.visible = false;
       }
     }
@@ -201,20 +207,5 @@ function draw() {
     player.collide(edges);
     player.collide(leftEdge);
     drawSprites();
-
-    if (keyDown("w")) {
-      player.y = player.y - 12;
-    }
-
-    if (keyDown("s")) {
-      player.y = player.y + 12;
-    }
-
-    if (keyDown("d")) {
-      player.x = player.x + 12;
-    }
-
-    if (keyDown("a")) {
-      player.x = player.x - 12;
-    }
+    playerMoves(player);
 }
