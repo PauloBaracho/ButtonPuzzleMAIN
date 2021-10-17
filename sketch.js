@@ -1,4 +1,4 @@
-var player, leftEdge;
+var player, rightEdge;
 var bud1, bud2;
 var redDoor, greenDoor;
 var menuSoundtrack, gameSoundtrack;
@@ -26,7 +26,7 @@ function setup(){
     //gameSoundtrack.play();
     //gameSoundtrack.loop();
 
-    leftEdge = createSprite (1500,500,5,1500);
+    rightEdge = createSprite (1500,500,5,1500);
 
     player = createSprite (770,850,100,100)
     player.shapeColor = "cyan";
@@ -82,7 +82,7 @@ function draw() {
       bud2.visible = false;
       redDoor.visible = false;
       greenDoor.visible = false;
-      leftEdge.visible = false;
+      rightEdge.visible = false;
 
       if (keyDown("space")) {
         gameStages = PHASE1;
@@ -145,7 +145,7 @@ function draw() {
       player.visible = true;
       bud1.visible = true;
       redDoor.visible = true;
-      leftEdge.visible = false;
+      rightEdge.visible = false;
 
       if (player.isTouching (bud1)) {
         bud1.shapeColor = rgb (0,255,0);
@@ -205,7 +205,7 @@ function draw() {
 
     edges = createEdgeSprites ();
     player.collide(edges);
-    player.collide(leftEdge);
+    player.collide(rightEdge);
     drawSprites();
     playerMoves(player);
 }
