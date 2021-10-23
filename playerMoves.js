@@ -1,17 +1,17 @@
-function playerMoves (playerM) {
+function playerMoves (variable) {
     if (keyDown("w")) {
-      playerM.y = playerM.y - 12;
+      variable.y = variable.y - 12;
     }
   
     if (keyDown("s")) {
-      playerM.y = playerM.y + 12;
+      variable.y = variable.y + 12;
     }
   
     if (keyDown("d")) {
-      playerM.x = playerM.x + 12;
+      variable.x = variable.x + 12;
     }
   
     if (keyDown("a")) {
-      playerM.x = playerM.x - 12;
+      variable.x = variable.x - 12;
     }
 }
