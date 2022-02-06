@@ -1,6 +1,6 @@
 var player, rightEdge;
 var bud1, bud2;
-var redDoor, greenDoor;
+var redDoor, greenDoor, colorDoor;
 var menuSoundtrack, gameSoundtrack;
 
 var unlockDoor1 = 0;
@@ -42,6 +42,9 @@ function setup(){
 
     greenDoor = createSprite (redDoor.x, redDoor.y, redDoor.width, redDoor.height);
     greenDoor.shapeColor = rgb(0,255,127);
+
+    colorDoor = createSprite (200,980,200,50)
+    colorDoor.shapeColor = rgb(176,224,230);
 }
 
 function draw() {
@@ -82,6 +85,7 @@ function draw() {
       bud2.visible = false;
       redDoor.visible = false;
       greenDoor.visible = false;
+      colorDoor.visible = false; 
       rightEdge.visible = false;
 
       if (keyDown("space")) {
@@ -144,8 +148,29 @@ function draw() {
 
       player.visible = true;
       bud1.visible = true;
+      colorDoor.visible = true;
       redDoor.visible = true;
       rightEdge.visible = false;
+
+      fill("white");
+      textSize(40);
+      text("Choose Your",95 ,700);
+
+      fill("white");
+      textSize(40);
+      text("Button Color",100,750);
+
+      fill("Gold");
+      textSize(40);
+      text("|",188,800);
+
+      fill("Gold");
+      textSize(40);
+      text("|",188,850);
+
+      fill("Gold");
+      textSize(40);
+      text("V",180,900);
 
       if (player.isTouching (bud1)) {
         bud1.shapeColor = rgb (0,255,0);
